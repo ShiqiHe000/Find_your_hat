@@ -6,13 +6,60 @@ const fieldCharacter = '░';
 const pathCharacter = '*';
 
 class Field {
-    constructor(field){
-        this.field = field;
-        this.rows = field.length;
-        this.cols = field[0].length;
+    constructor(rows, cols){
+        this.rows = rows;
+        this.cols = cols;
+        this.holesPercentage = 0.3;
+        this.field = this.generateField(rows, cols);
         this.posX = 0;
         this.posY = 0;
     }
+
+    // generate a random domain based on the user's input
+    generateField(rows, cols){
+
+        let field = [];
+
+        if(rows <= 0 || cols <= 0){
+            throw Error("Row and column should be larger than zero. Try again.");
+        }
+        else{
+            let totalTiles = rows * cols;
+            let holesNumber = Math.floor(totalTiles * this.holesPercentage);
+            // init domain (all tiles)
+            for(let i = 0; i < this.rows; i++){
+                field.push([]);
+                for(let j = 0; j < this.cols; j++){
+                    field[i].push(fieldCharacter);
+                }
+            }
+            // set the (0, 0) node as starting point
+            field[0][0] = pathCharacter;
+
+            // pick hat location (except (0. 0))
+            while(true){
+                let hatY = Math.floor(Math.random() * this.rows);
+                let hatX = Math.floor(Math.random() * this.cols);
+                if(!(hatX === 0 && hatY === 0)){
+                    field[hatY][hatX] = hat;
+                    break;
+                }
+            }
+
+            // pick holes location
+            while(holesNumber > 0){
+                let holeY = Math.floor(Math.random() * this.rows);
+                let holeX = Math.floor(Math.random() * this.cols);
+
+                if(field[holeY][holeX] === fieldCharacter){
+                    field[holeY][holeX] = hole;
+                    holesNumber -= 1;
+                }
+            }
+        }
+        return field;
+    }
+
 
     print(){
         for(let i = 0; i < this.field.length; i++){
@@ -103,11 +150,13 @@ class Field {
     }
 }
 
-const myField = new Field([
-    ['*', '░', 'O'],
-    ['░', 'O', '░'],
-    ['░', '^', '░'],
-  ]);
+// let user define the field -----------------------------------------
+console.log("Please define the domain size.");
+const rows = prompt("Enter the row number here: ");
+const cols = prompt("Enter the column number here: ");
+
+const myField = new Field(rows, cols);
+// -------------------------------------------------------------------
 
 // Start the game
 let run = true;
