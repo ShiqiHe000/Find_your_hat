@@ -150,19 +150,26 @@ class Field {
     }
 }
 
-// let user define the field -----------------------------------------
-console.log("Please define the domain size.");
-const rows = prompt("Enter the row number here: ");
-const cols = prompt("Enter the column number here: ");
+// play the game.
+function Play(){
 
-const myField = new Field(rows, cols);
-// -------------------------------------------------------------------
+    // let user define the field -----------------------------------------
+    console.log("Please define the domain size.");
+    console.log("Suggestion: choose a row number <= 25.");
+    const rows = prompt("Enter the row number here: ");
+    const cols = prompt("Enter the column number here: ");
 
-// Start the game
-let run = true;
-while(run){
-    myField.print();
-    const direction = prompt('What direction you would like to move (u, d, l, r)? \n');
-    run = myField.move(direction);
+    const myField = new Field(rows, cols);
+    // -------------------------------------------------------------------
 
+    // Start the game
+    let run = true;
+    while(run){
+        myField.print();
+        const direction = prompt('What direction you would like to move (u, d, l, r)? \n');
+        run = myField.move(direction);
+
+    }
 }
+
+Play();
