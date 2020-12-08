@@ -1,4 +1,5 @@
 const prompt = require('prompt-sync')({sigint: true});
+const term = require( 'terminal-kit' ).terminal ;
 
 const hat = '^';
 const hole = 'O';
@@ -154,7 +155,8 @@ class Field {
 function Play(){
 
     // let user define the field -----------------------------------------
-    console.log("Please define the domain size.");
+    //console.log("Please define the domain size.");
+    term.blue.bold("Please define the domain size. \n");
     console.log("Suggestion: choose a row number <= 25.");
     const rows = prompt("Enter the row number here: ");
     const cols = prompt("Enter the column number here: ");
