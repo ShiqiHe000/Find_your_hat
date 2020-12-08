@@ -156,8 +156,9 @@ function Play(){
 
     // let user define the field -----------------------------------------
     //console.log("Please define the domain size.");
-    term.blue.bold("Please define the domain size. \n");
-    console.log("Suggestion: choose a row number <= 25.");
+    term.blue.bold("Please define the domain size. \n\n");
+    term.red("Suggestion: "); 
+    term("choose a row number <= 25. \n");
     const rows = prompt("Enter the row number here: ");
     const cols = prompt("Enter the column number here: ");
 
