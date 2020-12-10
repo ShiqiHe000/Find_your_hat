@@ -10,7 +10,7 @@ class Field {
     constructor(rows, cols){
         this.rows = rows;
         this.cols = cols;
-        this.holesPercentage = 0.3;
+        this.holesPercentage = 0.2;
         this.field = this.generateField(rows, cols);
         this.posX = 0;
         this.posY = 0;
@@ -112,23 +112,24 @@ class Field {
             }
         }
         else{
-            console.log("Invalid input! Try again!");
+            term.red.bold("Invalid input! Try again! \n");
         }
         
         if(outOfBound){
-            console.log("You are out of bound!");
+            term.blue("You are ").bgWhite.red.bold("Out Of Bound! \n");
             return false;
         }
 
         // check hole
         if(this.isHole(this.posY, this.posX)){
-            console.log("You dropped in a hole! You died, haha!");
+            term.red.bold("You dropped in a HOLE!\n");
+            term.green("You died, haha! \n");
             return false;
         }
 
         // check hat
         if(this.isHat(this.posY, this.posX)){
-            console.log("You found the hat! You win!");
+            term.bgCyan.magenta.bold.blink("You found the hat! You win! \n");
             return false;
         }
 
@@ -155,7 +156,7 @@ class Field {
 function Play(){
 
     // let user define the field -----------------------------------------
-    //console.log("Please define the domain size.");
+    term.red.bgWhite.bold("Welcome to").red.bold.blink(" Find Your Hat!\n\n");
     term.blue.bold("Please define the domain size. \n\n");
     term.red("Suggestion: "); 
     term("choose a row number <= 25. \n");
