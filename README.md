@@ -9,8 +9,9 @@ and they must navigate back to it without falling down one of the holes or stepp
       * [Introduction](#introduction)
       * [Setup](#setup)
       * [Play the Game](#play-the-game)
+         * [Try It Online with Gitpod!](#try-it-online-with-gitpod)
 
-<!-- Added by: shiqi, at: Thu Dec 10 14:46:39 EST 2020 -->
+<!-- Added by: shiqi, at: Thu Dec 10 15:01:09 EST 2020 -->
 
 <!--te-->
 
