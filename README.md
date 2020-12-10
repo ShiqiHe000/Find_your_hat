@@ -15,6 +15,10 @@ and they must navigate back to it without falling down one of the holes or stepp
 <!--te-->
 
 ## Introduction
+<p align="center">
+  <img src="./imgs/demo.png" width="400" height = "300" class="center">
+</p>
+
 You start at `*` position, your goal is to find your **hat** `^`. 
 You can move up, down, left and right. But be careful, you must
 not letting yourself dropping in to a **hole** (`o`). 
