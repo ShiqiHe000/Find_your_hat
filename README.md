@@ -33,3 +33,15 @@ node main.js
 ```
 Then follows the prompts and enjoy the game!
 
+### Try It Online with Gitpod!
+Click the icon bellow, it will bring you to a cloud based Dev environment. 
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ShiqiHe000/Find_your_hat)
+
+Run the code in the terminal:
+```
+node main.js
+```
+
+Enjoy!
+
